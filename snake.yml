@@ -1,0 +1,42 @@
+name: Generate Contribution Snake
+
+on:
+  schedule:
+    # 毎日午前9時（JST）= UTC 0時に自動実行
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Generate snake animation (light)
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: kaikai-kitan
+          outputs: output/github-snake.svg
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
+      - name: Generate snake animation (dark)
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: kaikai-kitan
+          outputs: output/github-snake-dark.svg?palette=github-dark
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
+      - name: Commit & Push
+        run: |
+          git config user.name "kaikai-kitan"
+          git config user.email "${{ secrets.GIT_EMAIL }}"
+          git add -A
+          git diff --cached --quiet || git commit -m "🐍 Update contribution snake"
+          git push
