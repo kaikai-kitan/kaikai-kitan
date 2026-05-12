@@ -39,4 +39,5 @@ jobs:
           git config user.email "${{ secrets.GIT_EMAIL }}"
           git add -A
           git diff --cached --quiet || git commit -m "🐍 Update contribution snake"
+          git pull --rebase origin main
           git push
