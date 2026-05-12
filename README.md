@@ -16,15 +16,12 @@
 
 ## 👨‍💻 About Me
 
-```javascript
-const kaikai_kitan = {
-  pronouns:  "He | Him",
-  location:  "Japan 🇯🇵",
-  passion:   ["Creative Coding", "Motion Design", "Interactive Media"],
-  hobbies:   ["Unity Dev", "Video Editing", "Arduino Hacking"],
-  currently: "Always building something new ✨"
-};
-```
+| | |
+|:---:|:---|
+| 📍 **Location** | Japan 🇯🇵 |
+| 💡 **Passion** | Creative Coding · Motion Design · Interactive Media |
+| 🎮 **Hobbies** | Unity Dev · Video Editing · Arduino Hacking |
+| 🔨 **Currently** | Always building something new ✨ |
 
 ---
 
